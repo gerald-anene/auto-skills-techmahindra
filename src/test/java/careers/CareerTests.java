@@ -16,9 +16,9 @@ public class CareerTests extends BaseTests {
 	
 	@Test
 	public void verifyAutomationCareer() {
-		homePage.clickMenuItem("Careers", "Vacancies");
-		homePage.clickMenuItem("TEST AUTOMATION ENGINEER");
-		homePage.WaitForElementToBeVisible(By.xpath(".//li[contains(text(),'Autonomous and independent work')]"));
+		var currentPage=homePage.clickMenuItem("Careers", "Vacancies");
+		currentPage.clickMenuItem("TEST AUTOMATION ENGINEER");
+		currentPage.WaitForElementToBeVisible(By.xpath(".//li[contains(text(),'Autonomous and independent work')]"));
 		List<WebElement> count=getWebDriver().findElements(By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul"));
 
 		int AutoTestSkillsCount = count.size();

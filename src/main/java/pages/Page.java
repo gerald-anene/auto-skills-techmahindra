@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,7 @@ public class Page {
 	public Page(WebDriver webDriver) {
 		this.webDriver=webDriver;
 	}
+	
 	String menuItem_Format=".//ul/li[a[contains(text(),'%s')]]/a";
 	
 	
@@ -39,6 +42,18 @@ public class Page {
 	public void WaitForElementToBeVisible(By locator) {
 		WebDriverWait wait = new WebDriverWait(webDriver, java.time.Duration.ofSeconds(TIME_OUT));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public int AutomationSkillsCount() {
+		WaitForElementToBeVisible(By.xpath(".//li[contains(text(),'Autonomous and independent work')]"));
+		List<WebElement> count=webDriver.findElements(By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul"));
+		int AutoTestSkillsCount = count.size();
+		
+		return AutoTestSkillsCount;
+	}
+	
+	public WebDriver getWebDriver() {
+		return webDriver;
 	}
 	
 

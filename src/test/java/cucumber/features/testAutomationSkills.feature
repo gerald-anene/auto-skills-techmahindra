@@ -4,8 +4,7 @@ Feature: Test Automation Skills and Qualifications
   Scenario: Verify 5 skills of test automation Engineer
   
   Given I am on CTCO home page
-  And I click on Careers
-  And I click on Vacancies
-  When I click on Test Automation Engineer link
-  Then I should verify that 5 skills of Automation Engineer are displayed
+  And I hover on "Careers" and click on "Vacancies"
+  When I click on "TEST AUTOMATION ENGINEER" link
+  Then I should verify that "5" skills of Automation Engineer are displayed
   
