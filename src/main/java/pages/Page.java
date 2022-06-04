@@ -22,14 +22,18 @@ public class Page {
 	
 	
 	public Page clickMenuItem(String menuItem) {
+		String xpath=String.format(menuItem_Format, menuItem);
+		WaitForElementToBeClickable(By.xpath(xpath));
+		
 		findMenuItem(menuItem).click();
        return new Page(webDriver);
 	}
 	
 	public Page clickMenuItem(String menuItem,String subMenuItem) {
 		Actions action = new Actions(webDriver);
+		String xpath=String.format(menuItem_Format, menuItem);
+		WaitForElementToBeClickable(By.xpath(xpath));
 		action.moveToElement(findMenuItem(menuItem)).click().perform();;
-		
 		return clickMenuItem(subMenuItem);
 	}
 	
@@ -42,6 +46,11 @@ public class Page {
 	public void WaitForElementToBeVisible(By locator) {
 		WebDriverWait wait = new WebDriverWait(webDriver, java.time.Duration.ofSeconds(TIME_OUT));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public void WaitForElementToBeClickable(By locator) {
+		WebDriverWait wait = new WebDriverWait(webDriver, java.time.Duration.ofSeconds(TIME_OUT));
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
 	public int AutomationSkillsCount() {
