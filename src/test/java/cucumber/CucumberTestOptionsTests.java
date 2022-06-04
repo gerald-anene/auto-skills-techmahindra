@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 		glue = {"cucumber.stepdefs"},
 		features = {"src/test/java/cucumber/features"})
 
-public class CucumberTestOptions {
+public class CucumberTestOptionsTests {
 
 	@BeforeClass
 	public static void setUp(){

@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Page {
 	
-	protected WebDriver webDriver;
+	protected static WebDriver webDriver;
 	private static final int TIME_OUT = 30;
 	
 	public Page(WebDriver webDriver) {
-		this.webDriver=webDriver;
+		Page.webDriver=webDriver;
 	}
 	
 	String menuItem_Format=".//ul/li[a[contains(text(),'%s')]]/a";
@@ -52,7 +52,7 @@ public class Page {
 		return AutoTestSkillsCount;
 	}
 	
-	public WebDriver getWebDriver() {
+	public static WebDriver getWebDriver() {
 		return webDriver;
 	}
 	

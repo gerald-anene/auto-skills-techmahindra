@@ -21,7 +21,7 @@ public class BaseStepDefs {
 	}
 	
 	@And("^I hover on \"([^\"]*)\" and click on \"([^\"]*)\"$")
-	public void setProduct(String menuItem, String subMenuItem) {
+	public void hoverOnCareerAndClickVacancies(String menuItem, String subMenuItem) {
 		currentPage.clickMenuItem(menuItem, subMenuItem);
 	}
 

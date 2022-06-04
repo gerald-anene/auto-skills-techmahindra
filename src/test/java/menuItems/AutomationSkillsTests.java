@@ -1,25 +1,21 @@
-package careers;
+package menuItems;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import pages.Page;
 import utils.BaseTests;
 
-public class CareerTests extends BaseTests {
+public class AutomationSkillsTests extends BaseTests {
 	
 	@Test
 	public void verifyAutomationCareer() {
-		var currentPage=homePage.clickMenuItem("Careers", "Vacancies");
+		Page currentPage=homePage.clickMenuItem("Careers", "Vacancies");
 		currentPage.clickMenuItem("TEST AUTOMATION ENGINEER");
 		currentPage.WaitForElementToBeVisible(By.xpath(".//li[contains(text(),'Autonomous and independent work')]"));
-		List<WebElement> count=getWebDriver().findElements(By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul"));
+		List<WebElement> count=Page.getWebDriver().findElements(By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul"));
 
 		int AutoTestSkillsCount = count.size();
 		Assert.assertEquals(5, AutoTestSkillsCount);
