@@ -22,7 +22,9 @@ public class BaseTests {
 	
 	@AfterClass
 	public static void closeBrowser() {
+		webDriver.close();
 		webDriver.quit();
+		
 	}
 	
 	public static WebDriver getWebDriver() {

@@ -19,6 +19,8 @@ public class Page {
 	}
 	
 	String menuItem_Format=".//ul/li[a[contains(text(),'%s')]]/a";
+	By LastAutoSkillsOnPage=By.xpath(".//li[contains(text(),'Autonomous and independent work')]");
+	By ListOfAutoSkills=By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul");
 	
 	
 	public Page clickMenuItem(String menuItem) {
@@ -54,8 +56,8 @@ public class Page {
 	}
 	
 	public int AutomationSkillsCount() {
-		WaitForElementToBeVisible(By.xpath(".//li[contains(text(),'Autonomous and independent work')]"));
-		List<WebElement> count=webDriver.findElements(By.cssSelector("div[data-href*='test-automation-engineer'] div >div ul"));
+		WaitForElementToBeVisible(LastAutoSkillsOnPage);
+		List<WebElement> count=webDriver.findElements(ListOfAutoSkills);
 		int AutoTestSkillsCount = count.size();
 		
 		return AutoTestSkillsCount;
